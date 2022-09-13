@@ -35,11 +35,11 @@ public class PlayerController : MonoBehaviour
         {
             _velocity.y = 0f;
         }
-    
+
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         controller.Move(move * Time.deltaTime * _speed);
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && _velocity.y > -1 && _velocity.y <= 0)
         {
             _velocity.y = Mathf.Sqrt(_jumpForce * -3.0f * gravityValue);
         }
