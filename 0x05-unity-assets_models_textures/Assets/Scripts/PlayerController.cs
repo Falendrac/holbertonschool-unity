@@ -20,6 +20,12 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     /// The rigidbody for the mass
     private Rigidbody _rb;
+    /// To turn smooth in time
+    public float turnSmoothTime = 0.1f;
+    /// The smooth velocity
+    float turnSmoothVelocity;
+    /// To get the rotation of camera
+    public Transform cam;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +42,18 @@ public class PlayerController : MonoBehaviour
             _velocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * _speed);
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
+        if (move.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0, cam.transform.rotation.y, 0);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir * Time.deltaTime * _speed);
+        }
+
+        
 
         if (Input.GetButtonDown("Jump") && _velocity.y > -1 && _velocity.y <= 0)
         {
