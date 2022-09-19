@@ -1104,6 +1104,7 @@ GameObject:
   - component: {fileID: 666401286}
   - component: {fileID: 666401285}
   - component: {fileID: 666401284}
+  - component: {fileID: 666401288}
   m_Layer: 0
   m_Name: WinFlag
   m_TagString: Untagged
@@ -1188,6 +1189,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &666401288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666401283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27fc46e43eaafbc4dbc872ca3f02bd58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTimer: {fileID: 78074616}
+  TimerText: {fileID: 848801704}
 --- !u!1 &760042173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1310,7 @@ GameObject:
   - component: {fileID: 795542274}
   - component: {fileID: 795542273}
   - component: {fileID: 795542272}
+  - component: {fileID: 795542276}
   m_Layer: 0
   m_Name: TimerTrigger
   m_TagString: Untagged
@@ -1378,6 +1394,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &795542276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795542271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8447b1ab8077447adab19e2707d5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTimer: {fileID: 78074616}
 --- !u!1 &821449341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2814,6 +2843,24 @@ Transform:
   m_Father: {fileID: 1981654610}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1640121136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1911065236125876638, guid: 113b543ea1ff4b4469b37efd53aca289, type: 3}
+  m_PrefabInstance: {fileID: 1911065234486051502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1640121141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640121136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8447b1ab8077447adab19e2707d5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTimer: {fileID: 78074616}
 --- !u!1 &1678698798
 GameObject:
   m_ObjectHideFlags: 0
