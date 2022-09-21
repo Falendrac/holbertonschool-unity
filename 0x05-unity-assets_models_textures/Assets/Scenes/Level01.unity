@@ -4499,6 +4499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTimer: {fileID: 78074616}
+  triggerBox: {fileID: 795542271}
 --- !u!1001 &823540186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8756,6 +8757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTimer: {fileID: 78074616}
+  triggerBox: {fileID: 0}
 --- !u!1001 &1652265270
 PrefabInstance:
   m_ObjectHideFlags: 0
