@@ -19,3 +19,4 @@
 
 * Skyboxes: Farland Skies - Cloudy Crown
 * Models: Kenney's Nature Pack Extended
+* Wood Textures: High Quality Realistic Wood Textures - Mega Pack
