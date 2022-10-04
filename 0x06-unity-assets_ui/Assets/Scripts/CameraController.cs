@@ -18,6 +18,7 @@ public class CameraController : MonoBehaviour
     {
         playerPosition = player.transform.position;
         currentEulerAngles = transform.eulerAngles;
+        isInverted = (PlayerPrefs.GetInt("yInverted") == 1) ? true : false;
     }
 
     // Update is called once per frame

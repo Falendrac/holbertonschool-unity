@@ -814,6 +814,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413288016}
   m_CullTransparentMesh: 1
+--- !u!1 &619525759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2621901225627926100, guid: 15333923e8665df438c8dfac3d234ecf, type: 3}
+  m_PrefabInstance: {fileID: 4415987359422313725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &619525760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619525759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701ed934725394d42b5e38736c942e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &664849951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,6 +2284,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1238101441}
     m_Modifications:
+    - target: {fileID: 2676934816421312327, guid: 5b636225042795747905093f51ca408f, type: 3}
+      propertyPath: yToggle
+      value: 
+      objectReference: {fileID: 1274199146}
     - target: {fileID: 8946774974439390388, guid: 5b636225042795747905093f51ca408f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2364,6 +2385,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1238101441}
     m_Modifications:
+    - target: {fileID: 2621901225627926098, guid: 15333923e8665df438c8dfac3d234ecf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621901225627926098, guid: 15333923e8665df438c8dfac3d234ecf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621901225627926098, guid: 15333923e8665df438c8dfac3d234ecf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 619525760}
+    - target: {fileID: 2621901225627926098, guid: 15333923e8665df438c8dfac3d234ecf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621901225627926098, guid: 15333923e8665df438c8dfac3d234ecf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Apply
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621901225627926098, guid: 15333923e8665df438c8dfac3d234ecf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621901225627926098, guid: 15333923e8665df438c8dfac3d234ecf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2621901225627926100, guid: 15333923e8665df438c8dfac3d234ecf, type: 3}
       propertyPath: m_Name
       value: ApplyButton
