@@ -731,6 +731,7 @@ GameObject:
   - component: {fileID: 2769585999609697617}
   - component: {fileID: 2769585999609697630}
   - component: {fileID: 2769585999609697631}
+  - component: {fileID: 1574950425}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -839,7 +840,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2769585999609697630}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1574950425}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1574950425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2769585999609697629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76be3baebce8fa4449ae283af539748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 2769585999605416319}
 --- !u!1 &2769585999750642353
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,6 +878,7 @@ GameObject:
   - component: {fileID: 2769585999750642357}
   - component: {fileID: 2769585999750642354}
   - component: {fileID: 2769585999750642355}
+  - component: {fileID: 24524049}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -960,7 +987,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2769585999750642354}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 24524049}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &24524049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2769585999750642353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76be3baebce8fa4449ae283af539748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 2769585999605416319}
 --- !u!1001 &2769585999452251247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1056,10 +1108,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3161253255028047126, guid: e3cfd1d8230741f428b70c7bde258f56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161253255028047126, guid: e3cfd1d8230741f428b70c7bde258f56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161253255028047126, guid: e3cfd1d8230741f428b70c7bde258f56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 162026905}
+    - target: {fileID: 3161253255028047126, guid: e3cfd1d8230741f428b70c7bde258f56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161253255028047126, guid: e3cfd1d8230741f428b70c7bde258f56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Options
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161253255028047126, guid: e3cfd1d8230741f428b70c7bde258f56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161253255028047126, guid: e3cfd1d8230741f428b70c7bde258f56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3cfd1d8230741f428b70c7bde258f56, type: 3}
+--- !u!1 &986443199054698879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3161253255028047120, guid: e3cfd1d8230741f428b70c7bde258f56, type: 3}
+  m_PrefabInstance: {fileID: 2769585999452251247}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &986443199054698878 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3161253255028047121, guid: e3cfd1d8230741f428b70c7bde258f56, type: 3}
   m_PrefabInstance: {fileID: 2769585999452251247}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &162026905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986443199054698879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76be3baebce8fa4449ae283af539748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 2769585999605416319}
