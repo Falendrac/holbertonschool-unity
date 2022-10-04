@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     Vector3 playerPosition;
     Vector3 currentEulerAngles;
     private float _distanceCamPlayer = 6.25f;
+    public bool isInverted;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,12 @@ public class CameraController : MonoBehaviour
 
         if (Time.timeScale > 0)
         {
-            currentEulerAngles += new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
+            Vector3 cameraMove = new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
+            if (isInverted == true)
+            {
+                cameraMove.x = -cameraMove.x;
+            }
+            currentEulerAngles += cameraMove;
         }
         transform.localEulerAngles = currentEulerAngles;
 
