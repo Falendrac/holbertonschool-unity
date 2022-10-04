@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = gameObject.AddComponent<CharacterController>();
         _rb = GetComponent<Rigidbody>();
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

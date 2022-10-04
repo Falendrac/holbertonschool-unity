@@ -27,7 +27,10 @@ public class CameraController : MonoBehaviour
 
         transform.position -= newPosition;
 
-        currentEulerAngles += new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
+        if (Time.timeScale > 0)
+        {
+            currentEulerAngles += new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
+        }
         transform.localEulerAngles = currentEulerAngles;
 
         transform.position = playerPosition - transform.forward * _distanceCamPlayer;
