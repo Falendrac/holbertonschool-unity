@@ -10965,30 +10965,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2769585998524799994, guid: a5f544894fd873d42a89cf135e0d1b6c, type: 3}
-      propertyPath: m_FontData.m_VerticalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2769585998524799994, guid: a5f544894fd873d42a89cf135e0d1b6c, type: 3}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2769585998914463149, guid: a5f544894fd873d42a89cf135e0d1b6c, type: 3}
-      propertyPath: m_FontData.m_VerticalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2769585998914463149, guid: a5f544894fd873d42a89cf135e0d1b6c, type: 3}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2769585998930116161, guid: a5f544894fd873d42a89cf135e0d1b6c, type: 3}
-      propertyPath: m_FontData.m_VerticalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2769585998930116161, guid: a5f544894fd873d42a89cf135e0d1b6c, type: 3}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2769585999605416307, guid: a5f544894fd873d42a89cf135e0d1b6c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
