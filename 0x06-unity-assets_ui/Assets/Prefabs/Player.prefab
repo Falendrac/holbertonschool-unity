@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerText: {fileID: 0}
+  WinText: {fileID: 0}
 --- !u!114 &78074619
 MonoBehaviour:
   m_ObjectHideFlags: 0

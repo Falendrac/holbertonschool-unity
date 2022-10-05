@@ -14,6 +14,13 @@ public class Timer : MonoBehaviour
     private float minutes;
     // Modulo the time by 60 for the seconds
     private float seconds;
+    public Text WinText;
+
+    /// <summary>Final time !</summary>
+    public void Win()
+    {
+        WinText.text = string.Format("{0:00}:{1:00.00}", minutes, seconds);
+    }
 
     // Start is called before the first frame update
     void Start()

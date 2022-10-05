@@ -10,15 +10,21 @@ public class WinTrigger : MonoBehaviour
     public GameObject playerTimer;
     // Set the timer text for the canvas
     public Text TimerText;
+    public GameObject winCanvas;
+    public GameObject timerCanvas;
 
     // End the timer
+    // Set the game in pause
     void OnTriggerEnter(Collider other)
     {
         if (other.name == "Player")
         {
             playerTimer.GetComponent<Timer>().enabled = false;
-            TimerText.fontSize = 60;
-            TimerText.color = Color.green;
+            winCanvas.SetActive(true);
+            timerCanvas.SetActive(false);
+            Time.timeScale = 0;
+            Cursor.visible = true;
+            playerTimer.GetComponent<Timer>().Win();
         }
     }
 }

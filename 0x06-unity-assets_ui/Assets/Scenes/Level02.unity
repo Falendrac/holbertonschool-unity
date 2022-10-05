@@ -3744,6 +3744,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTimer: {fileID: 78074616}
   TimerText: {fileID: 848801704}
+  winCanvas: {fileID: 1633587714}
+  timerCanvas: {fileID: 1640121136}
 --- !u!1001 &676063778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8900,6 +8902,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 397a1bc3035a4b041af7833636a7bf9e, type: 3}
+--- !u!1 &1633587714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2557840447332608075, guid: 4319668db4fa38645936dd3b07c4d6b4, type: 3}
+  m_PrefabInstance: {fileID: 201961135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1640121136 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1911065236125876638, guid: 113b543ea1ff4b4469b37efd53aca289, type: 3}
@@ -9824,6 +9831,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8c6c7c16b3657434593e92af26aa1fff, type: 3}
+--- !u!114 &1954605606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2557840446715823214, guid: 4319668db4fa38645936dd3b07c4d6b4, type: 3}
+  m_PrefabInstance: {fileID: 201961135}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1977652377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11057,7 +11075,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimerCanvas
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1640121141, guid: 113b543ea1ff4b4469b37efd53aca289, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 113b543ea1ff4b4469b37efd53aca289, type: 3}
 --- !u!1001 &5722019590148103811
 PrefabInstance:
@@ -11066,6 +11085,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 78074618, guid: 0adaa7d1c88d7fa498cf3fb3c536e3c1, type: 3}
+      propertyPath: WinText
+      value: 
+      objectReference: {fileID: 1954605606}
     - target: {fileID: 78074618, guid: 0adaa7d1c88d7fa498cf3fb3c536e3c1, type: 3}
       propertyPath: TimerText
       value: 
