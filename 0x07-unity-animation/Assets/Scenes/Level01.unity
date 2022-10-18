@@ -10981,10 +10981,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimerCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1911065236125876638, guid: 113b543ea1ff4b4469b37efd53aca289, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 113b543ea1ff4b4469b37efd53aca289, type: 3}
 --- !u!1001 &2557840447386975805
@@ -11209,10 +11205,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 877192493}
-    - target: {fileID: 78074621, guid: 0adaa7d1c88d7fa498cf3fb3c536e3c1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5722019590074911867, guid: 0adaa7d1c88d7fa498cf3fb3c536e3c1, type: 3}
       propertyPath: m_Name
       value: Player
