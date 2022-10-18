@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
         {
             float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0, cam.transform.rotation.y, 0);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir * Time.deltaTime * _speed);
@@ -63,10 +62,13 @@ public class PlayerController : MonoBehaviour
 
         _velocity.y += gravityValue * Time.deltaTime;
         controller.Move(_velocity * Time.deltaTime);
+        controller.transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * 100 * Time.deltaTime);
 
         if (transform.position.y < -30)
         {
             transform.position = new Vector3(0, 40, 0);
         }
+
+        transform.Find("ty").localRotation = transform.rotation;
     }
 }
