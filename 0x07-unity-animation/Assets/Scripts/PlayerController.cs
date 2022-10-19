@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     float turnSmoothVelocity;
     /// To get the rotation of camera
     public Transform cam;
+    private Animator anim;
+    public Transform groundCheck;
 
     // Start is called before the first frame update
     void Start()
@@ -33,35 +35,16 @@ public class PlayerController : MonoBehaviour
         controller = gameObject.AddComponent<CharacterController>();
         _rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
+        anim = transform.Find("ty").GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (controller.isGrounded && _velocity.y < 0)
-        {
-            _velocity.y = 0f;
-        }
+        handleMove();
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
-        if (move.magnitude >= 0.1f)
-        {
-            float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+        handleJumping();
 
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir * Time.deltaTime * _speed);
-        }
-
-        
-
-        if (Input.GetButtonDown("Jump") && _velocity.y > -1 && _velocity.y <= 0)
-        {
-            _velocity.y = Mathf.Sqrt(_jumpForce * -3.0f * gravityValue);
-        }
-
-        _velocity.y += gravityValue * Time.deltaTime;
-        controller.Move(_velocity * Time.deltaTime);
         controller.transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * 100 * Time.deltaTime);
 
         if (transform.position.y < -30)
@@ -71,4 +54,43 @@ public class PlayerController : MonoBehaviour
 
         transform.Find("ty").localRotation = transform.rotation;
     }
+
+    // Handle the AWSD movement
+    void handleMove()
+    {
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized;
+        if (move.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            moveDir.y = -0.1f;
+            controller.Move(moveDir * Time.deltaTime * _speed);
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
+    }
+
+    // Handle the jump when the player hit the space bar
+    void handleJumping()
+    {
+        if (controller.isGrounded && _velocity.y < -1f)
+        {
+            _velocity.y = -1f;
+        }
+
+        if (Input.GetButtonDown("Jump") && controller.isGrounded)
+        {
+            _velocity.y = Mathf.Sqrt(_jumpForce * -3.0f * gravityValue);
+        }
+
+        _velocity.y += gravityValue * Time.deltaTime;
+        controller.Move(_velocity * Time.deltaTime);
+    }
+
+
 }
