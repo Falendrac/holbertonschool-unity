@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     /// To get the rotation of camera
     public Transform cam;
     private Animator anim;
-    public Transform groundCheck;
     private bool isControl;
 
     // Start is called before the first frame update
