@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         handleMove();
 
         handleJumping();
+        handleFall();
 
         controller.transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * 100 * Time.deltaTime);
 
@@ -97,5 +98,16 @@ public class PlayerController : MonoBehaviour
         controller.Move(_velocity * Time.deltaTime);
     }
 
-
+    // Handle the conditions to start the animation of falling
+    void handleFall()
+    {
+        if (!controller.isGrounded && transform.position.y < -10)
+        {
+            anim.SetBool("isFall", true);
+        }
+        else
+        {
+            anim.SetBool("isFall", false);
+        }
+    }
 }
