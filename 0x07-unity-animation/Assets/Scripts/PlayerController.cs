@@ -86,6 +86,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
             _velocity.y = Mathf.Sqrt(_jumpForce * -3.0f * gravityValue);
+            anim.SetBool("isJump", true);
+        }
+        else
+        {
+            anim.SetBool("isJump", false);
         }
 
         _velocity.y += gravityValue * Time.deltaTime;
