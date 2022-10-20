@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public Transform cam;
     private Animator anim;
     public Transform groundCheck;
+    private bool isControl;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
         anim = transform.Find("ty").GetComponent<Animator>();
+        isControl = true;
     }
 
     // Update is called once per frame
@@ -46,7 +48,11 @@ public class PlayerController : MonoBehaviour
         handleJumping();
         handleFall();
 
-        controller.transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * 100 * Time.deltaTime);
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Happy Idle"))
+        {
+            anim.SetBool("isImpact", false);
+            isControl = true;
+        }
 
         if (transform.position.y < -30)
         {
@@ -60,7 +66,7 @@ public class PlayerController : MonoBehaviour
     void handleMove()
     {
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized;
-        if (move.magnitude >= 0.1f)
+        if (move.magnitude >= 0.1f && isControl)
         {
             float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -68,6 +74,7 @@ public class PlayerController : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             moveDir.y = -0.1f;
             controller.Move(moveDir * Time.deltaTime * _speed);
+            controller.transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * 100 * Time.deltaTime);
             anim.SetBool("isRunning", true);
         }
         else
@@ -101,13 +108,16 @@ public class PlayerController : MonoBehaviour
     // Handle the conditions to start the animation of falling
     void handleFall()
     {
-        if (!controller.isGrounded && transform.position.y < -10)
+        if (!controller.isGrounded && transform.position.y < -15)
         {
             anim.SetBool("isFall", true);
+            isControl = false;
         }
-        else
+        else if (controller.isGrounded && anim.GetBool("isFall"))
         {
             anim.SetBool("isFall", false);
+
+            anim.SetBool("isImpact", true);
         }
     }
 }
