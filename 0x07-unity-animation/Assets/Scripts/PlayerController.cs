@@ -54,11 +54,6 @@ public class PlayerController : MonoBehaviour
             isControl = true;
         }
 
-        if (transform.position.y < -30)
-        {
-            transform.position = new Vector3(0, 40, 0);
-        }
-
         transform.Find("ty").localRotation = transform.rotation;
     }
 
@@ -94,10 +89,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
             _velocity.y = Mathf.Sqrt(_jumpForce * -3.0f * gravityValue);
-        }
-        
-        if (!controller.isGrounded)
-        {
             anim.SetBool("isJump", true);
         }
         else
@@ -112,8 +103,9 @@ public class PlayerController : MonoBehaviour
     // Handle the conditions to start the animation of falling
     void handleFall()
     {
-        if (!controller.isGrounded && transform.position.y < -15)
+        if (!controller.isGrounded && transform.position.y < -30)
         {
+            transform.position = new Vector3(0, 40, 0);
             anim.SetBool("isFall", true);
             isControl = false;
         }
