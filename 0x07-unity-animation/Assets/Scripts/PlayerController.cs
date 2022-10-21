@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             moveDir.y = -0.1f;
             controller.Move(moveDir * Time.deltaTime * _speed);
-            controller.transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * 100 * Time.deltaTime);
+            handleRotation(move);
             anim.SetBool("isRunning", true);
         }
         else
@@ -114,5 +114,34 @@ public class PlayerController : MonoBehaviour
 
             anim.SetBool("isImpact", true);
         }
+    }
+
+    // Handle the rotation of the character
+    void handleRotation(Vector3 move)
+    {
+        float camAngle = cam.rotation.eulerAngles.y / 2;
+        float moveTarget = 0;
+
+        if (move.x < 0 && move.z < 0)
+            moveTarget = -67.5f;
+        else if (move.x < 0 && move.z > 0)
+            moveTarget = -45f/2;
+        else if (move.x < 0)
+            moveTarget = -45f;
+        else if (move.x > 0 && move.z < 0)
+            moveTarget = 67.5f;
+        else if (move.x > 0 && move.z > 0)
+            moveTarget = 45f/2;
+        else if (move.x > 0)
+            moveTarget = 45;
+        else if (move.z < 0)
+            moveTarget = 90;
+        
+        Quaternion target = Quaternion.Euler(0, moveTarget + camAngle, 0);
+
+        Debug.Log(target);
+        transform.rotation = target;
+
+        // controller.transform.Rotate(Vector3.up * move.x * 100 * Time.deltaTime);
     }
 }
