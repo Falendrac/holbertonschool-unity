@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public Transform cam;
     private Animator anim;
     private bool isControl;
+    Vector3 move;
+    public GameObject model;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +41,15 @@ public class PlayerController : MonoBehaviour
         isControl = true;
     }
 
+    // FixedUpdate is called according to framerate
+    void FixedUpdate()
+    {
+        handleMove();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        handleMove();
-
         handleJumping();
         handleFall();
 
@@ -52,14 +58,12 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isImpact", false);
             isControl = true;
         }
-
-        transform.Find("ty").localRotation = transform.rotation;
     }
 
     // Handle the AWSD movement
     void handleMove()
     {
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized;
+        move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized;
         if (move.magnitude >= 0.1f && isControl)
         {
             float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -119,29 +123,15 @@ public class PlayerController : MonoBehaviour
     // Handle the rotation of the character
     void handleRotation(Vector3 move)
     {
-        float camAngle = cam.rotation.eulerAngles.y / 2;
-        float moveTarget = 0;
+        if (move != Vector3.zero)
+        {
+            model.transform.rotation = Quaternion.LookRotation(Quaternion.Euler(0.0f, cam.transform.localEulerAngles.y, 0.0f) * move);
+        }
 
-        if (move.x < 0 && move.z < 0)
-            moveTarget = -67.5f;
-        else if (move.x < 0 && move.z > 0)
-            moveTarget = -45f/2;
-        else if (move.x < 0)
-            moveTarget = -45f;
-        else if (move.x > 0 && move.z < 0)
-            moveTarget = 67.5f;
-        else if (move.x > 0 && move.z > 0)
-            moveTarget = 45f/2;
-        else if (move.x > 0)
-            moveTarget = 45;
-        else if (move.z < 0)
-            moveTarget = 90;
-        
-        Quaternion target = Quaternion.Euler(0, moveTarget + camAngle, 0);
-
-        Debug.Log(target);
-        transform.rotation = target;
-
-        // controller.transform.Rotate(Vector3.up * move.x * 100 * Time.deltaTime);
+        if (move.x != 0 || move.z != 0)
+        {
+            Vector3 v = transform.rotation.eulerAngles;
+            transform.rotation = Quaternion.Euler(v.x, cam.transform.rotation.eulerAngles.y, v.z);
+        }
     }
 }
