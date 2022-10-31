@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private bool isControl;
     Vector3 move;
     public GameObject model;
+    private AudioSource runSound;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
         anim = transform.Find("ty").GetComponent<Animator>();
         isControl = true;
+        runSound = GetComponent<AudioSource>();
     }
 
     // FixedUpdate is called according to framerate
@@ -74,10 +76,22 @@ public class PlayerController : MonoBehaviour
             controller.Move(moveDir * Time.deltaTime * _speed);
             handleRotation(move);
             anim.SetBool("isRunning", true);
+            if (controller.isGrounded)
+            {
+                if (!runSound.isPlaying)
+                {
+                    runSound.Play();
+                }
+            }
+            else
+            {
+                runSound.Stop();
+            }
         }
         else
         {
             anim.SetBool("isRunning", false);
+            runSound.Stop();
         }
     }
 
