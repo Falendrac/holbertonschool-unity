@@ -12,6 +12,8 @@ public class WinTrigger : MonoBehaviour
     public Text TimerText;
     public GameObject winCanvas;
     public GameObject timerCanvas;
+    public AudioSource backgroundAudio;
+    public AudioSource playerStep;
 
     // End the timer
     // Set the game in pause
@@ -25,6 +27,8 @@ public class WinTrigger : MonoBehaviour
             Time.timeScale = 0;
             Cursor.visible = true;
             playerTimer.GetComponent<Timer>().Win();
+            backgroundAudio.enabled = false;
+            playerStep.enabled = false;
         }
     }
 }
