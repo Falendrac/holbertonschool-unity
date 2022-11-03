@@ -33,6 +33,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-722524157276675456
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 20febb94cbe773549b5202357fa37869
+  m_EffectName: Attenuation
+  m_MixLevel: 3cb9a0ca17ca44d4c8a98740f5ad2f74
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -54,6 +68,7 @@ AudioMixerController:
     - 2b05e5c6c13c9d94abcc8d5b401a339d
     - 5752c171211c6b1458e518121905a2af
     - 08446745756c88541999c2bab751234f
+    - 568a4b33ae364ec4a8ee7335cc12c185
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -69,6 +84,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: 5930188291223967325}
   - {fileID: -5165640230705578299}
+  - {fileID: 5030685888556668297}
   m_Volume: 7697ef941de537545ac9a20c0887d379
   m_Pitch: c6bafd48268dd5942b3bad6acb90fe25
   m_Send: 00000000000000000000000000000000
@@ -102,7 +118,11 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 6506a078e2eb9704c8bb2ccc25513356
   m_FloatValues:
+    d3a553e2972c02a4bbc67c7c1b845a4f: 5
     04ef6204db3104a4183a268598bd6301: -20
+    61b29db79a88dee419f3d39b616ac922: 1
+    0c518728133d82447b561f011f0a764f: 1
+    c6bafd48268dd5942b3bad6acb90fe25: 1
   m_TransitionOverrides: {}
 --- !u!244 &3944028865139844913
 AudioMixerEffectController:
@@ -118,6 +138,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &5030685888556668297
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ambience
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 568a4b33ae364ec4a8ee7335cc12c185
+  m_Children: []
+  m_Volume: d3a553e2972c02a4bbc67c7c1b845a4f
+  m_Pitch: a7275865c9216ff4d825531366e1b983
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -722524157276675456}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &5930188291223967325
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
