@@ -145,6 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 0}
+  paused: {fileID: -6905037833689837834, guid: 55b77006dc9cbb14c854734372e02299, type: 2}
+  unpaused: {fileID: 24500006, guid: 55b77006dc9cbb14c854734372e02299, type: 2}
 --- !u!114 &78074621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +171,7 @@ AudioSource:
   m_GameObject: {fileID: 5722019590074911867}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5165640230705578299, guid: 55b77006dc9cbb14c854734372e02299, type: 2}
   m_audioClip: {fileID: 8300000, guid: da7e25c6697b38c46a34595d00420092, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
