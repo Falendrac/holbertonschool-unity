@@ -16,6 +16,7 @@ public class OptionsMenu : MonoBehaviour
     {
         GameObject.Find("InvertYToggle").GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("yInverted") == 1) ? true : false;
         GameObject.Find("BGMSlider").GetComponent<Slider>().value = PlayerPrefs.GetFloat("volumeBGM");
+        GameObject.Find("SFXSlider").GetComponent<Slider>().value = PlayerPrefs.GetFloat("volumeSFX");
     }
     /// <summary>
     /// Return to the main menu
@@ -24,6 +25,7 @@ public class OptionsMenu : MonoBehaviour
     public void Back()
     {
         masterMixer.SetFloat("BGMVolume", LinearToDecibel(PlayerPrefs.GetFloat("volumeBGM")));
+        masterMixer.SetFloat("SFXVolume", LinearToDecibel(PlayerPrefs.GetFloat("volumeSFX")));
         SceneManager.LoadScene(PlayerPrefs.GetInt("PreviousScene"));
     }
 
@@ -34,6 +36,7 @@ public class OptionsMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("yInverted", GameObject.Find("InvertYToggle").GetComponent<Toggle>().isOn ? 1 : 0);
         PlayerPrefs.SetFloat("volumeBGM", GameObject.Find("BGMSlider").GetComponent<Slider>().value);
+        PlayerPrefs.SetFloat("volumeSFX", GameObject.Find("SFXSlider").GetComponent<Slider>().value);
     }
 
     private float LinearToDecibel(float linear)
@@ -51,5 +54,10 @@ public class OptionsMenu : MonoBehaviour
     public void changeBGMVolume()
     {
         masterMixer.SetFloat("BGMVolume", LinearToDecibel(GameObject.Find("BGMSlider").GetComponent<Slider>().value));
+    }
+
+    public void changeSFXVolume()
+    {
+        masterMixer.SetFloat("SFXVolume", LinearToDecibel(GameObject.Find("SFXSlider").GetComponent<Slider>().value));
     }
 }
