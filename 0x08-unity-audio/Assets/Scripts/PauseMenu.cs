@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Handle all functionnality of pausemenu
@@ -10,6 +11,8 @@ public class PauseMenu : MonoBehaviour
 {
     /// <summary>Get the GameObject pauseCanvas to setactive</summary>
     public GameObject pauseCanvas;
+    public AudioMixerSnapshot paused;
+    public AudioMixerSnapshot unpaused;
 
     /// <summary>
     /// Activate the pause menu when the player press ESC
@@ -70,10 +73,12 @@ public class PauseMenu : MonoBehaviour
         {
             if (Time.timeScale == 1)
             {
+                paused.TransitionTo(.001f);
                 Pause();
             }
             else
             {
+                unpaused.TransitionTo(.01f);
                 Resume();
             }
         }
