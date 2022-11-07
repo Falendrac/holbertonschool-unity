@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     Vector3 move;
     public GameObject model;
     private AudioSource runSound;
+    public AudioClip landingGrass;
+    public AudioClip landingRock;
 
     // Start is called before the first frame update
     void Start()
@@ -146,6 +148,16 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 v = transform.rotation.eulerAngles;
             transform.rotation = Quaternion.Euler(v.x, cam.transform.rotation.eulerAngles.y, v.z);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.name);
+        if (other.gameObject.tag == "ground")
+        {
+            Debug.Log("BITE");
+            runSound.PlayOneShot(landingGrass);
         }
     }
 }
