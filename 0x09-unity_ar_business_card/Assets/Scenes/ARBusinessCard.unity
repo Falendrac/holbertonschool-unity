@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 219289104}
   - component: {fileID: 219289103}
   - component: {fileID: 219289102}
+  - component: {fileID: 219289105}
   m_Layer: 5
   m_Name: Linkedin
   m_TagString: Untagged
@@ -204,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 219289103}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 219289105}
+        m_TargetAssemblyTypeName: UrlOpener, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &219289103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +256,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219289100}
   m_CullTransparentMesh: 1
+--- !u!114 &219289105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219289100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b4f6a957db0c148a594fd3149898aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Url: https://www.linkedin.com/in/franck-leger-430213210/
 --- !u!1 &221653908
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +347,7 @@ GameObject:
   - component: {fileID: 266000592}
   - component: {fileID: 266000591}
   - component: {fileID: 266000590}
+  - component: {fileID: 266000593}
   m_Layer: 5
   m_Name: Github
   m_TagString: Untagged
@@ -390,7 +417,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 266000591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 266000593}
+        m_TargetAssemblyTypeName: UrlOpener, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &266000591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +468,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266000588}
   m_CullTransparentMesh: 1
+--- !u!114 &266000593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266000588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b4f6a957db0c148a594fd3149898aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Url: https://github.com/Falendrac
 --- !u!1 &422218013
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +1033,7 @@ GameObject:
   - component: {fileID: 1678793080}
   - component: {fileID: 1678793079}
   - component: {fileID: 1678793078}
+  - component: {fileID: 1678793081}
   m_Layer: 5
   m_Name: Twitter
   m_TagString: Untagged
@@ -1050,7 +1103,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1678793079}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1678793081}
+        m_TargetAssemblyTypeName: UrlOpener, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1678793079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,6 +1154,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678793076}
   m_CullTransparentMesh: 1
+--- !u!114 &1678793081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678793076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b4f6a957db0c148a594fd3149898aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Url: https://twitter.com/FKLeger
 --- !u!1 &1793779773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1358,7 @@ GameObject:
   - component: {fileID: 2093479072}
   - component: {fileID: 2093479071}
   - component: {fileID: 2093479070}
+  - component: {fileID: 2093479073}
   m_Layer: 5
   m_Name: Email
   m_TagString: Untagged
@@ -1349,7 +1428,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2093479071}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2093479073}
+        m_TargetAssemblyTypeName: UrlOpener, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2093479071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1388,3 +1479,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093479068}
   m_CullTransparentMesh: 1
+--- !u!114 &2093479073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093479068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b4f6a957db0c148a594fd3149898aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Url: 3220@holbertonstudents.com
