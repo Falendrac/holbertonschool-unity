@@ -19,4 +19,9 @@ public class UrlOpener : MonoBehaviour
     {
         Application.OpenURL(Url);
     }
+
+    public void MailOpen()
+    {
+        Application.OpenURL("mailto:" + Url);
+    }
 }
