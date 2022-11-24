@@ -1929,7 +1929,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2093479073}
         m_TargetAssemblyTypeName: UrlOpener, Assembly-CSharp
-        m_MethodName: Open
+        m_MethodName: MailOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
