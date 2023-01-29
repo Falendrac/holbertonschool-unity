@@ -9,21 +9,22 @@ using UnityEngine.XR.ARFoundation;
 /// </summary>
 public class PlaneSelection : MonoBehaviour
 {
-    // Plane Manager need to be disable
-    private ARPlaneManager planeManager;
-    // Current plane selected
-    private static ARPlane planeSelected;
-    // Canvas of the start button
-    private GameObject startCanvas;
+    private GameHandle gameHandleScript;
     // Avoid to spam the tap
     private bool isPlaneSelected = false;
-
+    // Plane Manager gameobject that in the scene of unity
+    private GameObject planeManager;
+    // AR Plane Manager component in the planeManager gameobject
+    private ARPlaneManager planeManagerComponent;
+    // Canvas of the start button
+    private GameObject startCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        planeManager = GameObject.Find("AR Plane Manager").GetComponent<ARPlaneManager>();
-        planeSelected = GetComponent<ARPlane>();
+        planeManager = GameObject.Find("AR Plane Manager");
+        planeManagerComponent = planeManager.GetComponent<ARPlaneManager>();
+        gameHandleScript = planeManager.GetComponent<GameHandle>();
         startCanvas = GameObject.Find("StartCanvas");
     }
 
@@ -35,17 +36,19 @@ public class PlaneSelection : MonoBehaviour
         {
             isPlaneSelected = true;
 
-            if (planeManager.enabled)
+            if (planeManagerComponent.enabled)
             {
-                foreach (var plane in planeManager.trackables)
+                foreach (var plane in planeManagerComponent.trackables)
                 {
                     plane.gameObject.SetActive(false);
                 }
-                planeManager.enabled = false;
+                planeManagerComponent.enabled = false;
             }
 
             gameObject.SetActive(true);
             startCanvas.GetComponent<Canvas>().enabled = true;
+            gameHandleScript.planeSelection(GetComponent<ARPlane>());
+            gameHandleScript.targetInstantiation();
         }
     }
 }
