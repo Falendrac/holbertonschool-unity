@@ -11,8 +11,21 @@ public class GameHandle : MonoBehaviour
 {
     // The plane selected by the user
     private static ARPlane planeSelected = null;
+    // Ammo that the player can be use to touch target
+    private GameObject ammo;
+
+    /// <summary>
+    /// Number of target we want in the plane
+    /// </summary>
     public int targetCount = 5;
+    /// <summary>
+    /// The target prefab we want to instantiate when the plane is selected
+    /// </summary>
     public GameObject targetPrefab;
+    /// <summary>
+    /// The ammo prefab we want to instantiate when the user start the game
+    /// </summary>
+    public GameObject ammoPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -45,5 +58,14 @@ public class GameHandle : MonoBehaviour
             GameObject targetInstatiate = Instantiate(targetPrefab, planeSelected.center + new Vector3(0, 0.05f, 0), Quaternion.identity);
             targetInstatiate.transform.parent = planeSelected.transform;
         }
+    }
+
+    /// <summary>
+    /// Instantiate ammo when the player start
+    /// </summary>
+    public void ammoInstantiation()
+    {
+        ammo = Instantiate(ammoPrefab);
+        ammo.GetComponent<AmmoHandler>().setPlaneSelected(planeSelected);
     }
 }

@@ -8,27 +8,34 @@ using UnityEngine.XR.ARFoundation;
 /// </summary>
 public class TargetHandler : MonoBehaviour
 {
-    public float speed = 1.0f;
-    private float threshold = 0.1f;
+    // The component ARPlane of the plane selected
     private ARPlane plane;
-    private Vector3 originDest;
+    // Destination of the target
+    private Vector3 dest;
+    private float threshold = 0.1f;
+
+    /// <summary>
+    /// The speed of targets in the plane
+    /// </summary>
+    public float speed = 1.0f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         plane = transform.parent.GetComponent<ARPlane>();
-        originDest = transform.localPosition;
+        dest = transform.localPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(originDest, transform.localPosition) < threshold)
+        if (Vector3.Distance(dest, transform.localPosition) < threshold)
         {
             int newRandomPos = Random.Range(0, plane.boundary.Length - 1);
-            originDest = new Vector3(plane.boundary[newRandomPos].x, 0, plane.boundary[newRandomPos].y);
+            dest = new Vector3(plane.boundary[newRandomPos].x, 0, plane.boundary[newRandomPos].y);
         }
 
-        transform.localPosition += new Vector3(speed * Time.deltaTime * (originDest.x - transform.localPosition.x), 0, speed * Time.deltaTime * (originDest.z - transform.localPosition.z));
+        transform.localPosition += new Vector3(speed * Time.deltaTime * (dest.x - transform.localPosition.x), 0, speed * Time.deltaTime * (dest.z - transform.localPosition.z));
     }
 }

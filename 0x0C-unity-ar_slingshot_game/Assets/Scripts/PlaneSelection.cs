@@ -9,6 +9,7 @@ using UnityEngine.XR.ARFoundation;
 /// </summary>
 public class PlaneSelection : MonoBehaviour
 {
+    // To access to public methods
     private GameHandle gameHandleScript;
     // Avoid to spam the tap
     private bool isPlaneSelected = false;
@@ -17,7 +18,7 @@ public class PlaneSelection : MonoBehaviour
     // AR Plane Manager component in the planeManager gameobject
     private ARPlaneManager planeManagerComponent;
     // Canvas of the start button
-    private GameObject startCanvas;
+    private GameObject gameCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +26,12 @@ public class PlaneSelection : MonoBehaviour
         planeManager = GameObject.Find("AR Plane Manager");
         planeManagerComponent = planeManager.GetComponent<ARPlaneManager>();
         gameHandleScript = planeManager.GetComponent<GameHandle>();
-        startCanvas = GameObject.Find("StartCanvas");
+        gameCanvas = GameObject.Find("GameCanvas");
     }
 
-    // Overwrite OnMousDown method to detect when the player tap on the screen
-    // Disable ARPlaneManager and enable the startcanvas
+    // Overwrite OnMouseDown method to detect when the player tap on the screen
+    // Disable ARPlaneManager and enable the gamecanvas
+    // In line 51 that set active the start button
     void OnMouseDown()
     {
         if (!isPlaneSelected)
@@ -46,7 +48,7 @@ public class PlaneSelection : MonoBehaviour
             }
 
             gameObject.SetActive(true);
-            startCanvas.GetComponent<Canvas>().enabled = true;
+            gameCanvas.transform.GetChild(0).gameObject.SetActive(true);
             gameHandleScript.planeSelection(GetComponent<ARPlane>());
             gameHandleScript.targetInstantiation();
         }
