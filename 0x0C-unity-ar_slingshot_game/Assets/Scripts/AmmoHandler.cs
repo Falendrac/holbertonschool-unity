@@ -12,6 +12,8 @@ public class AmmoHandler : MonoBehaviour
 {
     // The position when the user drop the ammo
     private Vector3 endPosition;
+    // To access to public methods and variable
+    private GameHandle gameHandleScript;
     // The plane selected by the user
     private ARPlane plane;
     // The rigdbody of the ammo
@@ -35,6 +37,7 @@ public class AmmoHandler : MonoBehaviour
         transform.parent = xrCamera.transform;
         transform.localPosition = offset;
         rb = GetComponent<Rigidbody>();
+        gameHandleScript = GameObject.Find("AR Plane Manager").GetComponent<GameHandle>();
     }
 
     // Update is called once per frame
@@ -67,11 +70,17 @@ public class AmmoHandler : MonoBehaviour
         rb.useGravity = true;
         rb.isKinematic = false;
         rb.AddForce((offset - endPosition).normalized * strength);
+        gameHandleScript.ammoCount--;
     }
 
     // Detect the collision with the ammo to reset it
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Target")
+        {
+            Destroy(collision.gameObject);
+            gameHandleScript.playerScore += 10;
+        }
         Reset();
     }
 

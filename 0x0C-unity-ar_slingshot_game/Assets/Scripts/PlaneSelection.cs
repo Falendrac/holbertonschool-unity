@@ -31,7 +31,8 @@ public class PlaneSelection : MonoBehaviour
 
     // Overwrite OnMouseDown method to detect when the player tap on the screen
     // Disable ARPlaneManager and enable the gamecanvas
-    // In line 51 that set active the start button
+    // In line 51 that set inactive the searching text
+    // In line 52 that set active the start button
     void OnMouseDown()
     {
         if (!isPlaneSelected)
@@ -48,7 +49,8 @@ public class PlaneSelection : MonoBehaviour
             }
 
             gameObject.SetActive(true);
-            gameCanvas.transform.GetChild(0).gameObject.SetActive(true);
+            gameCanvas.transform.GetChild(0).gameObject.SetActive(false);
+            gameCanvas.transform.GetChild(1).gameObject.SetActive(true);
             gameHandleScript.planeSelection(GetComponent<ARPlane>());
             gameHandleScript.targetInstantiation();
         }
