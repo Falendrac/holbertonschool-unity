@@ -18,6 +18,8 @@ public class AmmoHandler : MonoBehaviour
     private ARPlane plane;
     // The rigdbody of the ammo
     private Rigidbody rb;
+    // Catch start position when the player drag the ammo
+    private Vector3 startPosition;
     // The main camera
     private Camera xrCamera;
 
@@ -28,7 +30,7 @@ public class AmmoHandler : MonoBehaviour
     /// <summary>
     /// The strength of the ammo when the user drop it
     /// </summary>
-    public float strength = 1f;
+    public float strength = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +57,13 @@ public class AmmoHandler : MonoBehaviour
         return xrCamera.ScreenToWorldPoint(Input.mousePosition + offset);
     }
 
+    // Overwrite the OnMouseDown method when the user touch the ammo
+    // save the world position of the ammo
+    void OnMouseDown()
+    {
+        startPosition = GetMouseWorldPosition();
+    }
+
     // Overwrite the OnMouseDrag method when the user touch and drag
     // the ammo, that change the position of the ammo in the screen
     void OnMouseDrag()
@@ -69,7 +78,7 @@ public class AmmoHandler : MonoBehaviour
     {
         rb.useGravity = true;
         rb.isKinematic = false;
-        rb.AddForce((offset - endPosition).normalized * strength);
+        rb.AddForce((startPosition - endPosition).normalized * strength);
         gameHandleScript.ammoCount--;
     }
 
