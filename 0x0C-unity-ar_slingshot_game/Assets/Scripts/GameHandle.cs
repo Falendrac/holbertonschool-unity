@@ -38,6 +38,10 @@ public class GameHandle : MonoBehaviour
     /// </summary>
     public GameObject targetPrefab;
     /// <summary>
+    /// The play again button display when out of ammo or out of target
+    /// </summary>
+    public GameObject playAgainButton;
+    /// <summary>
     /// Score of the player, incremented when the player hit a target
     /// </summary>
     public int playerScore = 0;
@@ -65,6 +69,12 @@ public class GameHandle : MonoBehaviour
     {
         scoreText.text = playerScore.ToString();
         ammoText.text = ammoCount.ToString();
+
+        if (ammoCount == 0 || targetCount == 0)
+        {
+            playAgainButton.SetActive(true);
+            Destroy(ammo);
+        }
     }
 
     /// <summary>
@@ -123,5 +133,23 @@ public class GameHandle : MonoBehaviour
     public void exit()
     {
         Application.Quit();
+    }
+
+    /// <summary>
+    /// Refill ammo, reinstantiate ammo and targets, reset score
+    /// </summary>
+    public void playAgain()
+    {
+        ammoCount = 7;
+        targetCount = 5;
+        playerScore = 0;
+
+        GameObject[] targetDestroyer = GameObject.FindGameObjectsWithTag("Target");
+        foreach(GameObject target in targetDestroyer)
+            GameObject.Destroy(target);
+
+        targetInstantiation();
+        ammoInstantiation();
+        playAgainButton.SetActive(false);
     }
 }

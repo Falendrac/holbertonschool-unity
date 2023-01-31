@@ -89,11 +89,13 @@ public class AmmoHandler : MonoBehaviour
         {
             Destroy(collision.gameObject);
             gameHandleScript.playerScore += 10;
+            gameHandleScript.targetCount--;
         }
         Reset();
     }
 
     // Reset the position and the rigidbody of the ammo
+    // Destroy the gameobject if the player is out of ammo
     void Reset()
     {
         transform.localPosition = offset;
