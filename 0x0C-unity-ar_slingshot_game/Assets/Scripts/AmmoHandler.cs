@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using TMPro;
+using System;
 
 /// <summary>
 /// Handle all the game logic for the ammo
@@ -14,6 +16,7 @@ public class AmmoHandler : MonoBehaviour
     private Vector3 endPosition;
     // To access to public methods and variable
     private GameHandle gameHandleScript;
+    private LineRenderer line;
     // The plane selected by the user
     private ARPlane plane;
     // The rigdbody of the ammo
@@ -40,6 +43,7 @@ public class AmmoHandler : MonoBehaviour
         transform.localPosition = offset;
         rb = GetComponent<Rigidbody>();
         gameHandleScript = GameObject.Find("AR Plane Manager").GetComponent<GameHandle>();
+        line = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -70,6 +74,7 @@ public class AmmoHandler : MonoBehaviour
     {
         endPosition = GetMouseWorldPosition();
         transform.position = GetMouseWorldPosition();
+        drawTrajectory((startPosition - endPosition).normalized * Vector3.Distance(startPosition, endPosition) * 10);
     }
 
     // Overwrite the OnMouseUp method when the user drop the ammo
@@ -78,8 +83,8 @@ public class AmmoHandler : MonoBehaviour
     {
         rb.useGravity = true;
         rb.isKinematic = false;
-        rb.AddForce((startPosition - endPosition).normalized * strength);
-        gameHandleScript.ammoCount--;
+        rb.AddForce((startPosition - endPosition).normalized * Vector3.Distance(startPosition, endPosition) * 10 * strength);
+        line.enabled = false;
     }
 
     // Detect the collision with the ammo to reset it
@@ -101,6 +106,34 @@ public class AmmoHandler : MonoBehaviour
         transform.localPosition = offset;
         rb.useGravity = false;
         rb.isKinematic = true;
+        gameHandleScript.ammoCount--;
+    }
+
+    void drawTrajectory(Vector3 potentialForce)
+    {
+        float maxCurveLength = 5f;
+        int maxSegments = 120;
+        Vector3 progressWithoutGravity;
+        Vector3 currentPosition;
+        List<Vector3> linePoints = new List<Vector3>();
+        float timeOffset;
+
+        line.enabled = true;
+        linePoints.Clear();
+        linePoints.Add(transform.position);
+
+        for (int segment = 1; segment < maxSegments; segment++)
+        {
+            timeOffset = (maxCurveLength / maxSegments) * segment;
+            progressWithoutGravity = potentialForce * timeOffset;
+            Vector3 gravityOffset = Vector3.up * -0.5f * Physics.gravity.y * timeOffset * timeOffset;
+            currentPosition = startPosition + progressWithoutGravity - gravityOffset;
+
+            linePoints.Add(currentPosition);
+        }
+
+        line.positionCount = linePoints.Count;
+        line.SetPositions(linePoints.ToArray());
     }
 
     /// <summary>
