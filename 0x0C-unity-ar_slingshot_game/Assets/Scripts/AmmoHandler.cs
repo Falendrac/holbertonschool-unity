@@ -112,9 +112,9 @@ public class AmmoHandler : MonoBehaviour
     void drawTrajectory(Vector3 potentialForce)
     {
         float maxCurveLength = 5f;
-        int maxSegments = 120;
+        int maxSegments = 60;
         Vector3 progressWithoutGravity;
-        Vector3 currentPosition;
+        Vector3 currentPosition = startPosition;
         List<Vector3> linePoints = new List<Vector3>();
         float timeOffset;
 
@@ -127,7 +127,7 @@ public class AmmoHandler : MonoBehaviour
             timeOffset = (maxCurveLength / maxSegments) * segment;
             progressWithoutGravity = potentialForce * timeOffset;
             Vector3 gravityOffset = Vector3.up * -0.5f * Physics.gravity.y * timeOffset * timeOffset;
-            currentPosition = startPosition + progressWithoutGravity - gravityOffset;
+            currentPosition += progressWithoutGravity - gravityOffset;
 
             linePoints.Add(currentPosition);
         }
