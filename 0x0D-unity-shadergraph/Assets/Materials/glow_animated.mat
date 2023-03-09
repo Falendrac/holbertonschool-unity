@@ -96,7 +96,7 @@ Material:
     - _GlowStrength: 1
     - _MaximumGlowStrength: 10
     - _Metallic: 0
-    - _MinimumGlowStrength: 1.5
+    - _MinimumGlowStrength: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _PulseFrequency: 2
