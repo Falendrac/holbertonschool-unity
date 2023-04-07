@@ -94,12 +94,12 @@ Material:
     - _GlossyReflections: 0
     - _GlowPower: 4.03
     - _GlowStrength: 1
-    - _MaximumGlowStrength: 10
+    - _MaximumGlowStrength: 1.03
     - _Metallic: 0
-    - _MinimumGlowStrength: 3
+    - _MinimumGlowStrength: -3.11
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PulseFrequency: 2
+    - _PulseFrequency: 58.11
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1

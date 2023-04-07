@@ -87,8 +87,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DissolvingScaleFragments: 1000
-    - _DissolvingSpeed: 2
+    - _DissolvingScaleFragments: 20000
+    - _DissolvingSpeed: 5
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
